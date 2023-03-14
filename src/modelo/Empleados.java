@@ -6,18 +6,13 @@ import javax.persistence.*;
 @Entity
 @Table(name="Empleados", catalog="EmpresaFijos")
 @Inheritance(strategy=InheritanceType.JOINED)
-
-public abstract  class Empleados implements Serializable {
+public  abstract  class Empleados implements Serializable {
 	
 
 	protected Empresas empresa;
-	
-	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="cif", nullable=false)
-	
-	
-	
+		
 public Empresas getEmpresa() {
 		return empresa;
 	}
@@ -37,7 +32,7 @@ private String nombre;
 
 private	String teléfono;
 
-protected	float porcentaRetención;
+protected	double porcentaRetención;
 
 public Empleados() {
 	super();
@@ -47,7 +42,7 @@ public Empleados() {
 
 
 @Id
-@GeneratedValue 
+
 @Column (name ="dniEmp", unique=true , nullable=true)
 public String getDni() {
 	return dni;
@@ -78,7 +73,7 @@ public void setTeléfono(String teléfono) {
 
 @Column(name="PorcentajeRetencion")
 
-public float getPorcentaRetención() {
+public double getPorcentaRetención() {
 	return porcentaRetención;
 }
 

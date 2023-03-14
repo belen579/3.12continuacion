@@ -50,7 +50,7 @@ public void setTrienios(int trienios) {
 @Override
 public void calculoNomina() {
 
-  float sueldo=  (this.salarioBase+this.trienios) - (this.salarioBase+this.trienios)* super.porcentaRetención;
+  double sueldo=  (this.salarioBase+this.trienios) - (this.salarioBase+this.trienios)* super.porcentaRetención;
 	
 }
 

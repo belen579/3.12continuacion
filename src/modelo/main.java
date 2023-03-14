@@ -18,7 +18,7 @@ public class main {
 		Session session = sessionFactory.openSession();
 		
 
-		try {
+	/*	try {
 		session.beginTransaction();
 			
 			Empresas empresa = new Empresas();
@@ -42,22 +42,21 @@ public class main {
 		} finally {
 			session.close();
 		}
-		
+		*/
 		
 		try {
 			session.beginTransaction();
 			
-			Empresas empresa1 = session.get(Empresas.class, 1);
+			Empresas empresa1 = session.get(Empresas.class, "B12345678");
 				
 				Fijos empleadofijo = new Fijos();
 				empleadofijo.setDni("531947163B");
 				empleadofijo.setNombre("Antonio");
-				empleadofijo.setPorcentaRetención((float)5.55);
+				empleadofijo.setPorcentaRetención(5.55f);
 				empleadofijo.setTeléfono("653426562");
-				empleadofijo.setEmpresa(empresa1.getCif());
+				empleadofijo.setEmpresa(empresa1);
+					
 				
-					
-					
 					
 
 					session.save(empleadofijo);
@@ -66,7 +65,7 @@ public class main {
 				
 				
 			} catch (Exception ex) {
-				System.out.println("Ha ocurrido una excepción para crear la empresa " + ex.getMessage());
+				System.out.println("Ha ocurrido una excepción para crear el empleado" + ex.getMessage());
 				
 				
 				

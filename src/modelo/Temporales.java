@@ -26,11 +26,11 @@ import javax.persistence.TemporalType;
 public class Temporales extends Empleados implements Serializable {
 	
 
-@Temporal(TemporalType.DATE)
+
 @Column(name="FechaInicio", length=10)
 private	LocalDate fechaInicio;
 
-@Temporal(TemporalType.DATE)
+
 @Column(name="FechaFin", length=10)
 
 private	LocalDate fechaFin;
@@ -91,7 +91,7 @@ public void calculoNomina() {
 	
 	 
 	
-	float sueldo= this.pagoDia*(ChronoUnit.DAYS.between(fechaInicio, fechaFin) ) -this.pagoDia*(ChronoUnit.DAYS.between(fechaInicio, fechaFin))*super.porcentaRetención+this.suplemento;
+	double sueldo= this.pagoDia*(ChronoUnit.DAYS.between(fechaInicio, fechaFin) ) -this.pagoDia*(ChronoUnit.DAYS.between(fechaInicio, fechaFin))*super.porcentaRetención+this.suplemento;
 }
 
 
